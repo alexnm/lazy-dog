@@ -3,5 +3,9 @@
     "env": {
         "browser": true,
         "jest": true
+    },
+    "rules": {
+        "react/prop-types": 1,
+        "react/no-did-mount-set-state": 1
     }
 }
