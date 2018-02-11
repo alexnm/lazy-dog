@@ -11,19 +11,14 @@ const plugins = [
     } ),
 ];
 
-if ( !dev ) {
-    plugins.push(
-        new webpack.DefinePlugin( {
-            "process.env.NODE_ENV": JSON.stringify( "production" ),
-        } ),
-        new webpack.optimize.UglifyJsPlugin( { mangle: false, sourceMap: true } ),
-        new BundleAnalyzerPlugin( {
-            analyzerMode: "static",
-            reportFilename: "webpack-report.html",
-            openAnalyzer: false,
-        } ),
-    );
-}
+plugins.push(
+    new webpack.optimize.UglifyJsPlugin( { mangle: false, sourceMap: true } ),
+    new BundleAnalyzerPlugin( {
+        analyzerMode: "static",
+        reportFilename: "webpack-report.html",
+        openAnalyzer: false,
+    } ),
+);
 
 module.exports = {
     context: path.join( __dirname, "src" ),

@@ -10,7 +10,8 @@ class Fetch extends React.Component {
             content: "",
         };
     }
-    componentDidMount() {
+
+    componentWillMount() {
         this.setState( {
             content: (
                 <div>Loading...</div>
@@ -21,6 +22,21 @@ class Fetch extends React.Component {
                 res => this.setState( { content: this.props.children( res.data.message ) } ),
                 ( ) => this.setState( { content: ( <div>Error fetching content</div> ) } ),
             );
+    }
+
+    componentWillReceiveProps( nextProps ) {
+        if ( this.props.url !== nextProps.url ) {
+            this.setState( {
+                content: (
+                    <div>Loading...</div>
+                ),
+            } );
+            axios.get( `${ baseUrl }${ nextProps.url }` )
+                .then(
+                    res => this.setState( { content: this.props.children( res.data.message ) } ),
+                    ( ) => this.setState( { content: ( <div>Error fetching content</div> ) } ),
+                );
+        }
     }
 
     render() {

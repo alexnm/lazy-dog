@@ -6,7 +6,7 @@ const Home = ( ) => (
         <h2>Welcome to the lazy dog!</h2>
         <Fetch url="/breeds/image/random">
             { ( imageSrc ) => (
-                <img className="home-image" src={ imageSrc } alt="puppy" />
+                <img className="dog-image" src={ imageSrc } alt="puppy" />
             ) }
         </Fetch>
     </div>

@@ -4,12 +4,13 @@ import Home from "../pages/Home";
 import Favorite from "../pages/Favorite";
 import Search from "../pages/Search";
 import { simpleGreet } from "../Helpers";
+import BreedDetails from "../pages/BreedDetails";
 
 export default class Layout extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: simpleGreet( "Alex" ),
+            title: simpleGreet( "Junior" ),
         };
     }
 
@@ -26,7 +27,8 @@ export default class Layout extends React.Component {
 
                     <Route path="/" exact component={ Home } />
                     <Route path="/search" component={ Search } />
-                    <Route path="/favs" component={ Favorite } />
+                    <Route path="/search/:breed" component={ BreedDetails } />
+                    <Route path="/favs" exact component={ Favorite } />
                 </div>
             </BrowserRouter>
         );

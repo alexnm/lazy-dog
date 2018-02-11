@@ -1,15 +1,36 @@
 import React from "react";
-import Fetch from "../components/Fetch";
+import _ from "lodash";
+import { connect } from "react-redux";
+import { removeFromFavs } from "../Redux";
 
-const Home = ( ) => (
+const Favorite = ( { favs, dispatchRemoveFromFavs } ) => (
     <div>
         <h2>You love:</h2>
-        <Fetch url="/breeds/image/random">
-            { ( imageSrc ) => (
-                <img className="home-image" src={ imageSrc } alt="puppy" />
-            ) }
-        </Fetch>
+        { _.map( favs, ( favImage, index ) => (
+            <div className="dog-container" key={ favImage }>
+                <img
+                    className="dog-image"
+                    alt="puppy"
+                    src={ favImage }
+
+                />
+                <button
+                    className="love-button"
+                    onClick={ ( ) => dispatchRemoveFromFavs( index ) }
+                >
+                    Remove
+                </button>
+            </div>
+        ) ) }
     </div>
 );
 
-export default Home;
+const mapStateToProps = ( state ) => ( {
+    favs: state,
+} );
+
+const mapDispatchToProps = {
+    dispatchRemoveFromFavs: removeFromFavs,
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )( Favorite );
