@@ -6,10 +6,17 @@
     <title>Lazy Dog</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
+    <link rel="preload" as="script" href="./lib.bundle.js" />
+    <link rel="preload" as="script" href="./app.bundle.js" />
   </head>
 
   <body>
     <div id="app"></div>
+    <div id="some-forgotten-footer">
+      <img src="https://dog.ceo/api/img/terrier-toy/n02087046_6812.jpg" />
+      <img src="https://dog.ceo/api/img/briard/n02105251_5985.jpg" />
+      <img src="https://dog.ceo/api/img/terrier-toy/n02087046_6812.jpg" />
+    </div>
     <script type="text/javascript">
       let evilCounter = 0;
       while ( evilCounter < 300000000 ) {

@@ -11,6 +11,10 @@ body {
     margin: 10px;
 }
 
+#some-forgotten-footer {
+    margin-top: 2000px;
+}
+
 @media print {
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
