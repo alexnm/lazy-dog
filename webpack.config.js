@@ -11,14 +11,16 @@ const plugins = [
     } ),
 ];
 
-plugins.push(
-    new webpack.optimize.UglifyJsPlugin( { mangle: false, sourceMap: true } ),
-    new BundleAnalyzerPlugin( {
-        analyzerMode: "static",
-        reportFilename: "webpack-report.html",
-        openAnalyzer: false,
-    } ),
-);
+if ( !dev ) {
+    plugins.push(
+        new webpack.optimize.UglifyJsPlugin( { mangle: false, sourceMap: true } ),
+        new BundleAnalyzerPlugin( {
+            analyzerMode: "static",
+            reportFilename: "webpack-report.html",
+            openAnalyzer: false,
+        } ),
+    );
+}
 
 module.exports = {
     context: path.join( __dirname, "src" ),
