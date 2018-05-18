@@ -1,12 +1,12 @@
 import React from "react";
-import _ from "lodash";
+import { map } from "lodash/map";
 import { connect } from "react-redux";
 import { removeFromFavs } from "../Redux";
 
 const Favorite = ( { favs, dispatchRemoveFromFavs } ) => (
     <div>
         <h2>You love:</h2>
-        { _.map( favs, ( favImage, index ) => (
+        { map( favs, ( favImage, index ) => (
             <div className="dog-container" key={ favImage }>
                 <img
                     className="dog-image"

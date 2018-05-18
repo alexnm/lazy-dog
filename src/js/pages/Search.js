@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import { map } from "lodash/map";
 import Fetch from "../components/Fetch";
 
 const Search = ( { history } ) => (
@@ -9,7 +9,7 @@ const Search = ( { history } ) => (
             { ( breeds ) => (
                 <div>
                     <select onChange={ ( evt ) => history.push( `/search/${ evt.target.value }` ) }>
-                        { _.map( breeds, breed => (
+                        { map( breeds, breed => (
                             <option key={ breed }>{ breed }</option>
                         ) ) }
                     </select>

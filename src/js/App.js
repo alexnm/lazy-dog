@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "core-js";
+import "core-js/fn/set";
+import "core-js/fn/promise";
 import { Provider } from "react-redux";
 import store from "./Redux";
 

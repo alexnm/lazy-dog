@@ -9,6 +9,9 @@ const plugins = [
         minChunks: Infinity,
         filename: "[name].bundle.js",
     } ),
+    new webpack.DefinePlugin( {
+        "process.env.NODE_ENV": JSON.stringify( "production" ),
+    } ),
 ];
 
 if ( !dev ) {
@@ -27,7 +30,7 @@ module.exports = {
     devtool: dev ? "none" : "source-map",
     entry: {
         app: "./js/App.js",
-        lib: [ "react", "react-dom" ],
+        lib: [ "react", "react-dom", "react-router-dom", "redux", "react-redux" ],
     },
     resolve: {
         modules: [

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
+import { map } from "lodash/map";
 import Fetch from "../components/Fetch";
 import { addToFavs } from "../Redux";
 
@@ -13,7 +13,7 @@ const BreedDetails = ( { match, dispatchAddToFavs } ) => {
         <div>
             <Fetch url={ `/breed/${ match.params.breed }/images` }>
                 { ( images ) => (
-                    _.map( images, ( image ) =>
+                    map( images, ( image ) =>
                         (
                             <div className="dog-container" key={ image }>
                                 <img
